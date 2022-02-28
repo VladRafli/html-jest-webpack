@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 require('dotenv').config()
 
@@ -10,6 +11,11 @@ module.exports = {
         path: path.resolve(__dirname, './build')
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html',
+            minify: true
+        }),
         new MiniCssExtractPlugin({
             filename: 'main.bundle.css'
         })
